@@ -1,0 +1,24 @@
+.WeatherView {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.AddData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1 / span 2;
+}
+
+@media (max-width: 900px) {
+    .WeatherView {
+        grid-template-columns: 1fr;
+    }
+
+    .AddData {
+        grid-column: 1;
+    }
+}

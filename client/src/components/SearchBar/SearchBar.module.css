@@ -1,0 +1,23 @@
+.SearchBar {
+    width: 30%;
+}
+
+.SearchBar :global(.ui.input) {
+    width: 100%;
+}
+
+@media (max-width: 700px) {
+    .SearchBar {
+        width: 50%;
+    }
+}
+
+@media (max-width: 450px) {
+    .SearchBar {
+        width: 80%;
+    }
+}
+
+.Error {
+    color: red;
+}
