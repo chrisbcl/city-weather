@@ -40,3 +40,7 @@ Consequently, if we continue to search for more locations, they will be added to
 
 Ultimately, we can reset the weather search list and reset the views, that brings us back to the initial screen.
 The columns of the table are sortable.
+
+## Backend
+
+The backend server logs the requests made to it in a file **access.log**. It's available inside the docker container at **/log/server-logs/** and in the host file system at **/var/log/weather-api/**
