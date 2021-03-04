@@ -3,21 +3,31 @@ import { Column } from '../Table';
 import { toTableColumns, toTableRows } from './utils';
 
 export interface TableRowData<D extends { [key: string]: any } = {}> {
+    // Column label
     label: string;
+    // Column key
     key: keyof D;
+    // Column value for the row
     value: any;
 }
 
 export interface TableRow<D extends { [key: string]: any } = {}> {
+    // Id value for the table row
     id: any;
+    // data values for the row
     data: { [key in keyof D]: TableRowData<D> };
 }
 
 export interface TableColumn<D extends { [key: string]: any } = {}> {
+    // Title of the column
     title: string;
+    // key of the column
     key: keyof D;
+    // Indicates if the column is visible or not
     visible?: boolean;
+    // Indicates if the column is sortable
     sortable?: boolean;
+    // Current sort direction of the column
     sortDirection: SortDirection;
 }
 
@@ -27,6 +37,13 @@ export enum SortDirection {
     NONE = 'NONE'
 }
 
+/**
+ * Hook to create two state variables for rows and columns along with a function to
+ * sort a specific column
+ * @param data data values for the table
+ * @param columns column configuration for the table
+ * @param idKey id key to be used to uniquely identify the rows
+ */
 export const useTable = <D extends { [key: string]: any } = {}>(data: D[], columns: Column<D>[], idKey: keyof D) => {
     const initialTableColumns = useMemo(() => toTableColumns(columns), [columns]);
     const [tableColumns, setTableColumns] = useState<{ [key in keyof D]: TableColumn<D> }>(initialTableColumns);

@@ -5,9 +5,11 @@ import { ChartOptions } from 'chart.js';
 import classes from './WeatherGraphView.module.css';
 
 interface WeatherGraphViewProps {
+    // weather information list
     weatherList: Weather[];
 }
 
+// Bar chart options
 const options: ChartOptions = {
     legend: { display: true },
     tooltips: { enabled: true },
@@ -30,6 +32,11 @@ const options: ChartOptions = {
     }
 };
 
+/**
+ * Weather Graph View component that displays a Bar Chart using chart.js.
+ * The Bar Chart contains the information of the temperatures per city
+ * @param weatherGraphViewProps
+ */
 const WeatherGraphView = ({ weatherList }: WeatherGraphViewProps) => {
     const cities = useMemo(() => weatherList.map(({ city, countryCode }) => `${city}, ${countryCode}`), [weatherList]);
     const temperatures = useMemo(() => weatherList.map(({ temperature }) => temperature), [weatherList]);
@@ -38,7 +45,7 @@ const WeatherGraphView = ({ weatherList }: WeatherGraphViewProps) => {
         labels: cities,
         datasets: [
             {
-                label: 'Temperature',
+                label: 'Temperature °C',
                 data: temperatures,
                 maxBarThickness: 30,
                 minBarLength: 20

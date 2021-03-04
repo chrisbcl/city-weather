@@ -1,6 +1,9 @@
 import { Weather, WeatherProvider } from '../../../providers/WeatherProvider';
 import { GetWeatherDTO } from './GetWeatherDTO';
 
+/**
+ * Get weather use case implementation
+ */
 export class GetWeatherUseCase {
     constructor(private weatherProvider: WeatherProvider) {}
 

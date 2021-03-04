@@ -3,6 +3,15 @@ import weatherAPI, { WeatherResponse } from '../apis/weather';
 import { Weather } from '../interfaces/weather';
 import { mapWeatherResponse } from '../utils/utils';
 
+/**
+ * Hook that fetches the weather information by city and country code.
+ * Makes available:
+ *  - weatherList: the weather list state variable
+ *  - fetchWeather: function to fetch the weather information
+ *  - resetWeatherList: resets the weather list.
+ *  - isFetching: state variable that represents the fetching status
+ *  - errorMessage: the error message if any is returned
+ */
 export const useWeather = () => {
     const [weatherList, setWeatherList] = useState<Weather[]>([]);
     const [isFetching, setIsFetching] = useState(false);

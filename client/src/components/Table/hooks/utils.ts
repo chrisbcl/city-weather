@@ -1,6 +1,12 @@
 import { Column } from '../Table';
 import { TableColumn, TableRow, SortDirection, TableRowData } from './useTable';
 
+/**
+ * Converts the data passed to the table to the table row format
+ * @param data data values
+ * @param columns column configuration
+ * @param idKey id key
+ */
 export const toTableRows = <D extends { [key: string]: any } = {}>(
     data: D[],
     columns: { [key in keyof D]: TableColumn<D> },
@@ -19,6 +25,10 @@ export const toTableRows = <D extends { [key: string]: any } = {}>(
     }));
 };
 
+/**
+ * Converts the column configuration passed to the table to the table column format
+ * @param columns column configuration
+ */
 export const toTableColumns = <D extends { [key: string]: any } = {}>(
     columns: Column<D>[]
 ): { [key in keyof D]: TableColumn<D> } =>

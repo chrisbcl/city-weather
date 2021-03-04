@@ -3,6 +3,9 @@ import WeatherView from './components/weather/WeatherView/WeatherView';
 import { useWeather } from './hooks/useWeather';
 import classes from './App.module.css';
 
+/**
+ * Application entry point
+ */
 const App = () => {
     const { weatherList, fetchWeather, resetWeatherList, isFetching, errorMessage } = useWeather();
 

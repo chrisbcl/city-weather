@@ -1,5 +1,8 @@
 import { CustomError } from './CustomError';
 
+/**
+ * Bad Request Error that returns a custom message with the 400 status code
+ */
 export class BadRequestError extends CustomError {
     readonly statusCode = 400;
 

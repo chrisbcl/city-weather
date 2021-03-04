@@ -1,20 +1,33 @@
 import { SortDirection, TableColumn, TableRow, useTable } from './hooks/useTable';
 
 export interface Column<D> {
+    // Title of the column
     title: string;
+    // key of the column associated with the data
     key: keyof D;
+    // Indicates if the column is sortable
     sortable?: boolean;
+    // Indicates if the column is visible
     visible?: boolean;
 }
 
 interface TableProps<D extends { [key: string]: any } = {}> {
+    /** Columns of the table */
     columns: Column<D>[];
+    /** Data values of the table */
     data: D[];
+    /** ID key to be used to uniquely identify each row */
     idKey: keyof D;
 }
 
 const DIRECTIONS: SortDirection[] = [SortDirection.ASC, SortDirection.DESC, SortDirection.NONE];
 
+/**
+ * Render the th element representing a table column. It changes the sort direction with each click
+ * on the column header.
+ * @param tableColumn
+ * @param sortColumn sort function to be called when the user clicks on a sortable column header
+ */
 const renderColumn = <D extends { [key: string]: any } = {}>(
     { title, key, sortable, sortDirection, visible }: TableColumn<D>,
     sortColumn: (columnKey: keyof D, sortDirection: SortDirection) => void
@@ -50,6 +63,11 @@ const renderColumn = <D extends { [key: string]: any } = {}>(
     );
 };
 
+/**
+ * Renders the tr element representing a table row.
+ * @param tableRow
+ * @param columnKeys
+ */
 const renderRow = <D extends { [key: string]: any } = {}>({ data, id }: TableRow<D>, columnKeys: (keyof D)[]) => (
     <tr key={id}>
         {columnKeys.map((key) => (
@@ -58,6 +76,10 @@ const renderRow = <D extends { [key: string]: any } = {}>({ data, id }: TableRow
     </tr>
 );
 
+/**
+ * Table component
+ * @param tableProps
+ */
 const Table = <D extends { [key: string]: any } = {}>({ data, columns: columnsProps, idKey }: TableProps<D>) => {
     const { columns, rows, sortColumn } = useTable(data, columnsProps, idKey);
 

@@ -2,6 +2,9 @@ import owmAPI, { OpenWeatherMapWeatherResponse } from '../../apis/openweathermap
 import { kelvinToCelsius, formatTime } from '../../utils/utils';
 import { Weather, WeatherProvider } from '../WeatherProvider';
 
+/**
+ * Implementation of the Open Weather Map Provider
+ */
 export class OpenWeatherMapProvider implements WeatherProvider {
     async getWeather(city: string, countryCode?: string): Promise<Weather> {
         const query = `${city},${countryCode || ''}`;

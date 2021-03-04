@@ -1,5 +1,8 @@
 import { CustomError } from './CustomError';
 
+/**
+ * Not Found Error that returns a not found message with the 404 status code
+ */
 export class NotFoundError extends CustomError {
     statusCode: number = 404;
 

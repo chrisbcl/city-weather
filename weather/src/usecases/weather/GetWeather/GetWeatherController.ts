@@ -3,10 +3,15 @@ import { BadRequestError } from '../../../errors/BadRequestError';
 import { GetWeatherUseCase } from './GetWeatherUseCase';
 
 interface GetWeatherRequestQueryParams {
+    // city name
     city: string;
+    // country code
     countryCode: string;
 }
 
+/**
+ * Controller for the get weather route
+ */
 export class GetWeatherController {
     constructor(private getWeatherUseCase: GetWeatherUseCase) {}
 

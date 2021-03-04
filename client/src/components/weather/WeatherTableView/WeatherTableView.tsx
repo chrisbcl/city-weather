@@ -3,9 +3,14 @@ import { useMemo } from 'react';
 import Table, { Column } from '../../Table/Table';
 
 interface WeatherTableViewProps {
+    // Weather information list
     weatherList: Weather[];
 }
 
+/**
+ * Weather Table View component that displays a table with the weather information.
+ * @param weatherTableViewProps
+ */
 const WeatherTableView = ({ weatherList }: WeatherTableViewProps) => {
     const columns = useMemo<Column<Weather>[]>(
         () => [
@@ -26,7 +31,7 @@ const WeatherTableView = ({ weatherList }: WeatherTableViewProps) => {
             },
             {
                 key: 'temperature',
-                title: 'Temperature',
+                title: 'Temperature °C',
                 sortable: true
             },
             {

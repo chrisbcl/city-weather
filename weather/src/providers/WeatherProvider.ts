@@ -12,5 +12,10 @@ export interface Weather {
 }
 
 export interface WeatherProvider {
+    /**
+     * Get the weather information by city and country code (optional)
+     * @param city city name
+     * @param countryCode country code (example: PT)
+     */
     getWeather(city: string, countryCode?: string): Promise<Weather>;
 }
