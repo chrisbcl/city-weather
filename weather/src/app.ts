@@ -13,7 +13,7 @@ app.set('trust proxy', true);
 app.use(express.json());
 app.use(cors());
 
-const accessLogStream = fs.createWriteStream('/log/server-logs/access.log');
+const accessLogStream = fs.createWriteStream('/log/server-logs/access.log', { flags: 'a' });
 
 app.use(morgan('combined', { stream: accessLogStream }));
 
