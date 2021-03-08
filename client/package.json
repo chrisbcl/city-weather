@@ -21,7 +21,7 @@
     },
     "scripts": {
         "dev": "chmod +x ./env.sh && ./env.sh && cp env-config.js ./public/ && react-scripts start",
-        "build": "sh -ac '. ./.env; react-scripts build'",
+        "build": "sh -ac '. ./.local.env; react-scripts build'",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },

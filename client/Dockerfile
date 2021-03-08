@@ -22,7 +22,7 @@ EXPOSE 80
 # Copy .env file and shell script to container
 WORKDIR /usr/share/nginx/html
 COPY ./env.sh .
-COPY .env .
+COPY .local.env .
 
 # Make our shell script executable
 RUN chmod +x env.sh
